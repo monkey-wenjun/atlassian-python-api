@@ -2540,10 +2540,6 @@ class Confluence(AtlassianRestAPI):
         data = {"status": status, "trigger": "VIEW_PAGE"}
         try:
             response = self.post(url, json=data)
-            if response.status_code == 200:
-                return True
-            else:
-                return False
         except HTTPError as e:
             if e.response.status_code != 200:
                 raise ApiError("Param cannot be empty", reason=e)
